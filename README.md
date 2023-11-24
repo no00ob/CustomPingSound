@@ -3,7 +3,7 @@ Simple Lethal Company sound mod that let's you replace the radar ping sound with
 
 ## Installation
 
-Install like any other BepInEx mod. You can get a built version of the mod from the github releases page. Install to the following directory:
+Install like any other BepInEx mod. You can get a built version of the mod from the github releases page. This mod requires the following API for it to function properly: https://github.com/no00ob/LCSoundTool. Install to the following directory:
 
 ```
   \GAME_LOCATION\Lethal Company\BepInEx\plugins
