@@ -8,5 +8,5 @@ Install like any other BepInEx mod. You can get a built version of the mod from 
 ```
   \GAME_LOCATION\Lethal Company\BepInEx\plugins
 ```
-The sound is located within the subdirectory that has the same name as the DLL file. Do not rename this folder as it will break the mod. You can replace this sound file with any sound of your choosing.
+The sound is located within the subdirectory that has the same name as the DLL file. Do not rename this folder as it will break the mod. You can replace this sound file with any sound of your choosing, just keep the name as ping.wav for the mod to function correctly.
     
