@@ -54,8 +54,7 @@ namespace no00ob.Mod.LethalCompany.CustomPingSound
             pingSound = w.GetAudioClip();
 
             // replace the specified audio clip with our new one using LC Sound Tool
-            SoundTool.ReplaceAudioClip("Button2", pingSound);
-            SoundTool.ReplaceAudioClip("Button3", pingSound);
+            SoundTool.ReplaceAudioClip("GhostDevicePing", pingSound);
         }
     }
 }
