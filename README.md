@@ -1,5 +1,5 @@
 # Custom Ping Sound
-Simple Lethal Company sound mod that let's you replace the radar ping sound with any custom .wav file.
+Simple Lethal Company sound mod that let's you replace the radar ping sound with any custom .wav file. If you're looking for reference on how to implement or use similar audio loading you can check out both branches on github. Other branch has an alternative way of loading files if the normal way doesn't work on your end.
 
 ## Installation
 
