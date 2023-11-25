@@ -45,55 +45,17 @@ namespace no00ob.Mod.LethalCompany.CustomPingSound
 
             logger.LogDebug(path);
 
-            // wait for it to load and set the property
-            pingSound = await LoadClip(path);
+            WWW w = new WWW(path);
+
+            while (!w.isDone)
+            {
+            }
+
+            pingSound = w.GetAudioClip();
 
             // replace the specified audio clip with our new one using LC Sound Tool
-            SoundTool.ReplaceAudioClip("GhostDevicePing", pingSound);
+            SoundTool.ReplaceAudioClip("Button2", pingSound);
+            SoundTool.ReplaceAudioClip("Button3", pingSound);
         }
-
-        async Task<AudioClip> LoadClip(string path)
-        {
-            AudioClip clip = null;
-            using (UnityWebRequest uwr = UnityWebRequestMultimedia.GetAudioClip(path, AudioType.WAV))
-            {
-                uwr.SendWebRequest();
-
-                // we have to wrap tasks in try/catch, otherwise it will just fail silently
-                try
-                {
-                    while (!uwr.isDone)
-                        await Task.Delay(5);
-
-                    if (uwr.result == UnityWebRequest.Result.ConnectionError || uwr.result == UnityWebRequest.Result.ProtocolError || uwr.result == UnityWebRequest.Result.DataProcessingError)
-                        logger.LogError($"{uwr.error}");
-                    else
-                    {
-                        clip = DownloadHandlerAudioClip.GetContent(uwr);
-                    }
-                }
-                catch (Exception err)
-                {
-                    logger.LogError($"{err.Message}, {err.StackTrace}");
-                }
-            }
-
-            return clip;
-        }
-
-        /*[HarmonyPatch(typeof(PlayerControllerB), "Update")]
-        [HarmonyPrefix]
-        public static void HookPlayerControllerBUpdate()
-        {
-            if (toggleAudioSourceDebugLog.IsDown() && !wasKeyDown)
-            {
-                wasKeyDown = true;
-            }
-            if (toggleAudioSourceDebugLog.IsUp() && wasKeyDown)
-            {
-                wasKeyDown = false;
-                debugAudioSources = !debugAudioSources;
-                Instance.logger.LogDebug($"Toggling AudioSource debug logs {debugAudioSources}!");            }
-        }*/
     }
 }
